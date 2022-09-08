@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffd60a"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvAlpha"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:textSize="50sp"
+        android:text=""
+        android:layout_marginTop="50dp"
+        android:textColor="@color/design_default_color_primary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonPress"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="30dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonPress"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/reportingChart"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="400dp"
+        android:layout_margin="30dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonPress"
+        android:elevation="10dp"
+        />
+
+
+<!--    <com.anychart.anychart.AnyChartView-->
+<!--        android:id="@+id/any_chart_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="400dp"-->
+<!--        android:layout_margin="30dp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/buttonPress"-->
+<!--        />-->
+
+<HorizontalScrollView
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/hv2"
+    android:layout_width="match_parent"
+    android:id="@+id/hv1"
+    android:layout_height="wrap_content">
+        <view
+            class="im.dacer.androidcharts.BarView"
+            android:id="@+id/bar_view"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_margin="30dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bar_view2"/>
+</HorizontalScrollView>
+
+    <HorizontalScrollView
+        app:layout_constraintTop_toBottomOf="@id/hv1"
+        app:layout_constraintBottom_toTopOf="@id/buttonPress"
+        android:layout_width="match_parent"
+        android:id="@+id/hv2"
+        android:layout_height="wrap_content">
+        <view
+            class="im.dacer.androidcharts.BarView"
+            android:id="@+id/bar_view2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="30dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/buttonPress"/>
+    </HorizontalScrollView>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonPress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:text="PRESS ME"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@drawable/button_selector" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
